@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.post('/shorten', (req, res) => {
   const longUrl = req.body.longUrl;
-  const shortUrl = shortid.generate(); // Adjust this URL accordingly
+  const shortUrl =  shortid.generate(); // Adjust this URL accordingly
 
   res.json({ shortUrl });
 });
