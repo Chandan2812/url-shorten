@@ -34,7 +34,11 @@ To set up and run the URL shortening service locally, follow these steps:
    ```bash
    npm install
 
-4.Start the server
+4. Set up environment variables:
+   ```bash
+   PORT: 8000
+   
+5.Start the server
   ```bash
   node index.js
   ```
