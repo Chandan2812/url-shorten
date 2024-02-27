@@ -11,13 +11,20 @@ urlRouter.post('/shorten', async (req, res) => {
 
   try {
     // Save the original and short URL to the database
+
+    let isPresent= await UrlModel.findOne({originalUrl})
+    console.log(isPresent);
+
+    if(isPresent){
+      return res.json(isPresent.shortUrl)
+    }
     const url = new UrlModel({
       originalUrl,
       shortUrl
     });
     await url.save();
 
-    res.json({ shortUrl });
+    res.json({ url });
   } catch (error) {
     console.error("Error while shortening URL:", error);
     res.status(500).json({ error: 'Internal Server Error' });
